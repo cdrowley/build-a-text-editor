@@ -1,5 +1,6 @@
 # Custom
 kilo
+.vscode/settings.json
 
 # Prerequisites
 *.d
