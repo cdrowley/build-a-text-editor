@@ -32,19 +32,21 @@ void enableRawMode()
 int main()
 {
     enableRawMode();
-    char c;
-    // read (1 byte) from standard input into c
-    while (read(STDIN_FILENO, &c, 1) == 1 && c != 'q')
+
+    while (1)
     {
+        char c = '\0';
+        read(STDIN_FILENO, &c, 1);
         if (iscntrl(c))
         {
             printf("%d\r\n", c);
         }
         else
         {
-            // print the ASCII value and character
-            printf("%d ('%c')\r\n", c, c);
+            printf("%d ('%c')\r\n", c, c); // print the ASCII value and character
         }
+        if (c == 'q')
+            break; // quit on 'q' (ASCII 113
     };
 
     return 0;
